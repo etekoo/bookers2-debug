@@ -1,0 +1,17 @@
+<div>
+  <h3>User info</h3>
+  <%= image_tag user.get_profile_image(200, 200) %>
+  <table>
+  <tr>
+   <th>
+      <td><h5>name</h5></td>
+      <td><%= user.name %></td>
+   </th>
+  </tr>
+  </table>
+  <h5>introduction</h5>
+  <p><%= user.introduction %></p>
+ 
+  <p><%= link_to raw('<i class="fa-solid fa-user-gear"></i>'), edit_user_path(user), class: "btn btn-outline-secondary btn-block" %></p>
+  
+</div>
