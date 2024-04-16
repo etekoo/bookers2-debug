@@ -1,28 +1,10 @@
-<!-- 投稿編集 -->
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
-<div>
-  <%= flash[:notice] %>
-</div>
-<% if flash.now[:error].present? %>
-  <div>
-    <% flash.now[:error].each do |error_message| %>
-      <p><%= error_message %></p>
-    <% end %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Book</h1>
+    	<%= render 'layouts/errors', obj: @book %>
+  		<%= render 'form', book: @book %>
+  		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
+  		<%= link_to 'Back', books_path, class: "back" %>
   </div>
-<% end %>
-
-<h1>Editing Book</h1>
-<%= form_with model: @book, url: book_path(@book), method: :patch do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-  
-  <%= f.submit 'Update Book' %>
-  <% end %>
-  
- <%= link_to "Show", book_path(@book.id) %>
- <%= link_to "Back", books_path %>
+</div>
